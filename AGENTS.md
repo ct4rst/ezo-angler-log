@@ -1,3 +1,7 @@
+## Private working notes (`fishing/`)
+
+`fishing/` is a gitignored subfolder containing the user's private fishing analysis notebook (catch logs, spot profiles, data pipelines) — not blog content. See [fishing/CLAUDE.md](fishing/CLAUDE.md) for its own conventions. Never copy real spot names, coordinates, or content from `fishing/` into public blog content under `src/` without the user explicitly asking.
+
 ## Development
 
 When starting the dev server, use background mode:

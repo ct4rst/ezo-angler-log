@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# private fishing notes (contains real spot names)
+fishing/
