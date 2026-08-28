@@ -1,0 +1,267 @@
+:root {
+  --color-bg: #f7f4ec;
+  --color-surface: #ffffff;
+  --color-ink: #1c2b33;
+  --color-ink-soft: #4f5f66;
+  --color-line: #e4ddcd;
+  --color-navy: #1f3d4d;
+  --color-accent: #c1531f;
+  --font-serif: "Shippori Mincho", "Noto Serif JP", serif;
+  --font-sans: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+  --content-width: 42rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-navy);
+  text-decoration-color: var(--color-line);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-navy);
+}
+
+.wrap {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- site header --- */
+
+.site-header {
+  border-bottom: 1px solid var(--color-line);
+  padding: 2rem 0 1.5rem;
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.site-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.site-tagline {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+.site-nav a {
+  margin-left: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: var(--color-accent);
+}
+
+/* --- footer --- */
+
+.site-footer {
+  margin-top: 4rem;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--color-line);
+  color: var(--color-ink-soft);
+  font-size: 0.8rem;
+}
+
+/* --- hero (home) --- */
+
+.hero-banner {
+  margin-top: 1.75rem;
+  border-radius: 14px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.hero-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero {
+  padding: 2.25rem 0 2rem;
+}
+
+.hero p {
+  color: var(--color-ink-soft);
+  max-width: 34rem;
+}
+
+/* --- about --- */
+
+.about {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--color-line);
+  margin-bottom: 2.5rem;
+}
+
+.about img {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 999px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.about h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.about p {
+  margin: 0;
+  color: var(--color-ink-soft);
+  font-size: 0.92rem;
+}
+
+/* --- section headings --- */
+
+.section-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-ink-soft);
+  border-bottom: 1px solid var(--color-line);
+  padding-bottom: 0.6rem;
+  margin: 0 0 0.5rem;
+}
+
+/* --- post list / cards --- */
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-card {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.post-card:first-child {
+  padding-top: 0;
+}
+
+.post-card time {
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.post-card h2 {
+  margin: 0.35rem 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+.post-card h2 a {
+  text-decoration: none;
+  color: var(--color-navy);
+}
+
+.post-card h2 a:hover {
+  color: var(--color-accent);
+}
+
+.post-card p {
+  margin: 0;
+  color: var(--color-ink-soft);
+  font-size: 0.95rem;
+}
+
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0.6rem 0 0;
+}
+
+.tag-list li {
+  font-size: 0.72rem;
+  color: var(--color-ink-soft);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  padding: 0.15rem 0.65rem;
+}
+
+/* --- article page --- */
+
+.post-header {
+  padding: 2.5rem 0 1rem;
+}
+
+.post-header time {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  letter-spacing: 0.03em;
+}
+
+.post-header h1 {
+  margin: 0.5rem 0 0;
+  font-size: 1.9rem;
+}
+
+.post-body {
+  font-size: 1.02rem;
+}
+
+.post-body p {
+  margin: 0 0 1.4em;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 32rem) {
+  .hero { padding: 2rem 0 1.5rem; }
+  .post-header h1 { font-size: 1.55rem; }
+}

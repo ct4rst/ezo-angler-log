@@ -1,17 +1,74 @@
 ---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import PostCard from '../components/PostCard.astro';
 
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const featured = allPosts.filter((p) => p.data.featured).slice(0, 3);
+const popular = featured.length > 0 ? featured : allPosts.slice(0, 3);
+const recent = allPosts.slice(0, 5);
 ---
+<Layout title="北海道釣行録">
+  <div class="hero-banner">
+    <img src="/images/hero-banner.svg" alt="道央の海のイメージイラスト" width="1200" height="400" />
+  </div>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <section class="hero">
+    <h1>北海道釣行録</h1>
+    <p>
+      道央エリアを中心に、ヒラメやブリを追う釣行の記録。
+      潮汐・水温データと自分の釣果を照らし合わせながら、勘だけに頼らない釣りを目指しています。
+    </p>
+  </section>
+
+  <section class="about">
+    <div>
+      <h2>自己紹介</h2>
+      <p>
+        T。道央エリアを中心に釣りをしています。<br />
+        メインターゲット：ヒラメ、サクラマス、ソイ、ブリ、アブラコ。
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-label">人気記事</h2>
+    {popular.length > 0 ? (
+      <ul class="post-list">
+        {popular.map((post) => (
+          <PostCard
+            id={post.id}
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            tags={post.data.tags}
+          />
+        ))}
+      </ul>
+    ) : (
+      <p>まだ記事がありません。</p>
+    )}
+  </section>
+
+  <section>
+    <h2 class="section-label">新着記事</h2>
+    {recent.length > 0 ? (
+      <ul class="post-list">
+        {recent.map((post) => (
+          <PostCard
+            id={post.id}
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            tags={post.data.tags}
+          />
+        ))}
+      </ul>
+    ) : (
+      <p>まだ記事がありません。</p>
+    )}
+  </section>
+</Layout>

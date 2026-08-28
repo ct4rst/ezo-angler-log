@@ -1,0 +1,23 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags?: string[];
+}
+
+const { id, title, description, pubDate, tags = [] } = Astro.props;
+---
+<li class="post-card">
+  <time datetime={pubDate.toISOString()}>
+    {pubDate.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+  </time>
+  <h2><a href={`/blog/${id}/`}>{title}</a></h2>
+  <p>{description}</p>
+  {tags.length > 0 && (
+    <ul class="tag-list">
+      {tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+  )}
+</li>
